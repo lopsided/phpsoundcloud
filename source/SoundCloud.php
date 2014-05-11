@@ -244,12 +244,12 @@ class SoundCloud
     }
 
     /**
-     * @param integer $id
+     * @param integer $trackId
      * @return string
      */
-    public function getTrackStreamUri($id)
+    public function getTrackStreamUri($trackId)
     {
-        $uri = $this->getTrack($id)['stream_url'];
+        $uri = $this->getTrack($trackId)['stream_url'];
 
         if (!is_null($this->token)) {
             $query = ['oauth_token' => $this->token];
