@@ -244,6 +244,32 @@ class SoundCloud
     }
 
     /**
+     * @param integer $id
+     * @return string
+     */
+    public function getTrackStreamUri($id)
+    {
+        $uri = $this->getTrack($id)['stream_url'];
+
+        if (!is_null($this->token)) {
+            $query = ['oauth_token' => $this->token];
+        } else {
+            $query = ['client_id' => $this->clientId];
+        }
+
+        $response = $this->getClient()->get(
+            $uri,
+            [
+                'headers' => ['Accept' => 'application/json'],
+                'query' => $query,
+                'allow_redirects' => false
+            ]
+        );
+
+        return $response->getHeader('Location');
+    }
+
+    /**
      * @param string $uri
      * @return string
      * @throws \GuzzleHttp\Exception\ClientException

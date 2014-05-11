@@ -158,6 +158,18 @@ class PhpSoundCloudTest extends \PHPUnit_Framework_TestCase
     /**
      * @group anonymous
      */
+    public function testGetTrackStreamUriAnonymous()
+    {
+        $this->soundcloud->setToken(null);
+
+        $trackId = getenv('trackId');
+
+        $this->soundcloud->getTrackStreamUri($trackId);
+    }
+
+    /**
+     * @group anonymous
+     */
     public function testResolveUriAnonymous()
     {
         $this->soundcloud->setToken(null);
