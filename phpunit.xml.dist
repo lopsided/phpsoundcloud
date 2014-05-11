@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit backupGlobals="false"
+         backupStaticAttributes="false"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         stopOnError="false"
+         stopOnFailure="false"
+         stopOnIncomplete="false"
+         stopOnSkipped="false"
+         bootstrap="vendor/autoload.php">
+    <php>
+        <env name="clientId" value="APPLICATION_KEY" />
+        <env name="clientSecret" value="APPLICATION_SECRET" />
+        <env name="playlistId" value="4141576" />
+        <env name="playlistUri" value="https://api.soundcloud.com/playlists/4141576" />
+        <env name="trackId" value="147399190" />
+        <env name="username" value="USERNAME" />
+        <env name="password" value="PASSWORD" />
+    </php>
+    <testsuites>
+        <testsuite name="PhpSoundCloud Test Suite">
+            <directory>./tests</directory>
+        </testsuite>
+    </testsuites>
+    <filters>
+        <whitelist>
+            <directory>./source</directory>
+        </whitelist>
+    </filters>
+</phpunit>
