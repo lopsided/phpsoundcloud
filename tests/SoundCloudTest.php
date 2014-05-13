@@ -61,7 +61,7 @@ class PhpSoundCloudTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @group token
-     * @depends testCredentialsLogin
+     * @depends testGetTokenUsingCredentials
      *
      * @param string $token
      */
@@ -87,7 +87,7 @@ class PhpSoundCloudTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @group token
-     * @depends testCredentialsLogin
+     * @depends testGetTokenUsingCredentials
      *
      * @param string $token
      */
@@ -111,7 +111,7 @@ class PhpSoundCloudTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @group token
-     * @depends testCredentialsLogin
+     * @depends testGetTokenUsingCredentials
      *
      * @param string $token
      */
@@ -164,7 +164,7 @@ class PhpSoundCloudTest extends \PHPUnit_Framework_TestCase
 
         $trackId = getenv('trackId');
 
-        $this->soundcloud->getTrackStreamUri($trackId);
+        $this->assertInternalType('string', $this->soundcloud->getTrackStreamUri($trackId));
     }
 
     /**
