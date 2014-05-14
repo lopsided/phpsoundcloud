@@ -47,7 +47,6 @@ class SoundCloud
      * @param string $clientId
      * @param string $clientSecret
      * @param string $redirectUri
-     * @throws \InvalidArgumentException
      */
     public function __construct($clientId, $clientSecret = null, $redirectUri = null)
     {

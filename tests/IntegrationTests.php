@@ -4,7 +4,7 @@ namespace Alcohol\PhpSoundCloud\Tests;
 
 use Alcohol\PhpSoundCloud\SoundCloud;
 
-class PhpSoundCloudTest extends \PHPUnit_Framework_TestCase
+class IntegrationTests extends \PHPUnit_Framework_TestCase
 {
     /**
      * @var SoundCloud
@@ -20,10 +20,11 @@ class PhpSoundCloudTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @group anonymous
+     * @test
+     * @group integration
      * @expectedException \GuzzleHttp\Exception\ClientException
      */
-    public function testGetTokenUsingCredentialsWithInvalidCredentials()
+    public function calling_getTokenUsingCredentials_with_invalid_credentials_should_throw_exception()
     {
         $username = 'username';
         $password = 'password';
@@ -32,9 +33,10 @@ class PhpSoundCloudTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @group token
+     * @test
+     * @group integration
      */
-    public function testGetTokenUsingCredentials()
+    public function calling_getTokenUsingCredentials_with_valid_credentials_should_return_token()
     {
         $username = getenv('username');
         $password = getenv('password');
@@ -50,22 +52,24 @@ class PhpSoundCloudTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @group anonymous
+     * @test
+     * @group integration
      * @expectedException \GuzzleHttp\Exception\ClientException
      */
-    public function testGetStreamWithInvalidToken()
+    public function calling_getStream_with_invalid_token_should_throw_exception()
     {
         $this->soundcloud->setToken('invalid-token');
         $this->soundcloud->getStream();
     }
 
     /**
-     * @group token
-     * @depends testGetTokenUsingCredentials
+     * @test
+     * @group integration
+     * @depends calling_getTokenUsingCredentials_with_valid_credentials_should_return_token
      *
      * @param string $token
      */
-    public function testGetStreamWithToken($token)
+    public function calling_getStream_with_valid_token_should_return_stream($token)
     {
         $this->soundcloud->setToken($token);
         $result = $this->soundcloud->getStream();
@@ -76,22 +80,24 @@ class PhpSoundCloudTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @group anonymous
+     * @test
+     * @group integration
      * @expectedException \GuzzleHttp\Exception\ClientException
      */
-    public function testGetFavoritesWithInvalidToken()
+    public function calling_getFavorites_with_invalid_token_should_throw_exception()
     {
         $this->soundcloud->setToken('invalid-token');
         $this->soundcloud->getFavorites();
     }
 
     /**
-     * @group token
-     * @depends testGetTokenUsingCredentials
+     * @test
+     * @group integration
+     * @depends calling_getTokenUsingCredentials_with_valid_credentials_should_return_token
      *
      * @param string $token
      */
-    public function testGetFavoritesWithToken($token)
+    public function calling_getFavorites_with_valid_token_should_return_favorites($token)
     {
         $this->soundcloud->setToken($token);
         $result = $this->soundcloud->getFavorites();
@@ -100,33 +106,38 @@ class PhpSoundCloudTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @group anonymous
+     * @test
+     * @group integration
      * @expectedException \GuzzleHttp\Exception\ClientException
      */
-    public function testGetPlaylistsWithInvalidToken()
+    public function calling_getPlaylists_with_invalid_token_should_throw_exception()
     {
         $this->soundcloud->setToken('invalid-token');
         $this->soundcloud->getPlaylists();
     }
 
     /**
-     * @group token
-     * @depends testGetTokenUsingCredentials
+     * @test
+     * @group integration
+     * @depends calling_getTokenUsingCredentials_with_valid_credentials_should_return_token
      *
      * @param string $token
      */
-    public function testGetPlaylistsWithToken($token)
+    public function calling_getPlaylists_with_valid_token_should_return_playlists($token)
     {
         $this->soundcloud->setToken($token);
         $result = $this->soundcloud->getPlaylists();
 
         $this->assertTrue(is_array($result));
+        $first = current($result);
+        $this->assertEquals('playlist', $first['kind']);
     }
 
     /**
-     * @group anonymous
+     * @test
+     * @group integration
      */
-    public function testGetPlaylistAnonymous()
+    public function calling_getPlaylist_anonymously_returns_playlist_details()
     {
         $this->soundcloud->setToken(null);
 
@@ -140,9 +151,10 @@ class PhpSoundCloudTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @group anonymous
+     * @test
+     * @group integration
      */
-    public function testGetTrackAnonymous()
+    public function calling_getTrack_anonymously_returns_track_details()
     {
         $this->soundcloud->setToken(null);
 
@@ -156,9 +168,10 @@ class PhpSoundCloudTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @group anonymous
+     * @test
+     * @group integration
      */
-    public function testGetTrackStreamUriAnonymous()
+    public function calling_getTrackStreamUri_anonymously_returns_streaming_uri()
     {
         $this->soundcloud->setToken(null);
 
@@ -168,9 +181,10 @@ class PhpSoundCloudTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @group anonymous
+     * @test
+     * @group integration
      */
-    public function testResolveUriAnonymous()
+    public function calling_resolveUri_anonymously_returns_correct_resolved_target_uri()
     {
         $this->soundcloud->setToken(null);
 
