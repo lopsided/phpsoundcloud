@@ -3,7 +3,7 @@
     "description": "SoundCloud API wrapper",
     "keywords": ["soundcloud", "api", "wrapper"],
     "homepage": "https://github.com/alcohol/phpsoundcloud",
-    "license": "WTFPL",
+    "license": "MIT",
     "authors": [{
         "name": "Rob Bast",
         "email": "rob.bast@gmail.com"
