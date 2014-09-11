@@ -24,6 +24,16 @@ or manually include it as a dependency in your composer.json:
 }
 ```
 
+## Usage
+
+```
+use Alcohol\SoundCloud;
+
+$soundcloud = new SoundCloud($clientId, $clientSecret, $redirectUri);
+
+// do stuff with it - see class for functionality, no docs yet
+```
+
 ## Contributing
 
 Feel free to submit a pull request or create an issue.
