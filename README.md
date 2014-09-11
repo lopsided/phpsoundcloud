@@ -26,7 +26,9 @@ or manually include it as a dependency in your composer.json:
 
 ## Usage
 
-```
+``` php
+<?php
+
 use Alcohol\SoundCloud;
 
 $soundcloud = new SoundCloud($clientId, $clientSecret, $redirectUri);
