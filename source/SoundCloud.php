@@ -1,6 +1,4 @@
-<?php
-
-namespace Alcohol\PhpSoundCloud;
+<?php namespace Alcohol;
 
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Message\ResponseInterface;

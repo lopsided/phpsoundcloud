@@ -18,13 +18,13 @@
     },
     "require-dev": {
         "phpunit/phpunit": "~4.1",
-        "phpmd/phpmd": "~1.5",
+        "phpmd/phpmd": "~2.0",
         "squizlabs/php_codesniffer": "~1.5"
     },
     "autoload": {
         "psr-4": {
-            "Alcohol\\PhpSoundCloud\\": "source/",
-            "Alcohol\\PhpSoundCloud\\Tests\\":"tests/"
+            "Alcohol\\": "source/",
+            "Alcohol\\Tests\\":"tests/"
         }
     }
 }

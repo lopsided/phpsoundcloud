@@ -1,8 +1,6 @@
-<?php
+<?php namespace Alcohol\Tests;
 
-namespace Alcohol\PhpSoundCloud\Tests;
-
-use Alcohol\PhpSoundCloud\SoundCloud;
+use Alcohol\SoundCloud;
 
 class IntegrationTests extends \PHPUnit_Framework_TestCase
 {
