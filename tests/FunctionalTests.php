@@ -16,7 +16,7 @@ class FunctionalTests extends \PHPUnit_Framework_TestCase
      */
     public function class_SoundCloud_exists()
     {
-        $this->assertTrue(class_exists('Alcohol\PhpSoundCloud\SoundCloud'));
+        $this->assertTrue(class_exists('Alcohol\SoundCloud'));
 
         $soundcloud = new SoundCloud(
             $this->clientId,
@@ -24,7 +24,7 @@ class FunctionalTests extends \PHPUnit_Framework_TestCase
             $this->redirectUri
         );
 
-        $this->assertInstanceOf('Alcohol\PhpSoundCloud\SoundCloud', $soundcloud);
+        $this->assertInstanceOf('Alcohol\SoundCloud', $soundcloud);
 
         return $soundcloud;
     }
