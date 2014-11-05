@@ -1,4 +1,4 @@
-# alcohol\phpsoundcloud
+# Alcohol\SoundCloud
 
 A client written in PHP for SoundCloud's API.
 
