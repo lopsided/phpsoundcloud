@@ -2,7 +2,7 @@
     "name": "alcohol/phpsoundcloud",
     "description": "SoundCloud API wrapper",
     "keywords": ["soundcloud", "api", "wrapper"],
-    "homepage": "https://github.com/alcohol/phpsoundcloud",
+    "homepage": "https://alcohol.github.io/phpsoundcloud",
     "license": "MIT",
     "authors": [{
         "name": "Rob Bast",
