@@ -39,6 +39,17 @@ class FunctionalTests extends \PHPUnit_Framework_TestCase
     /**
      * @test
      * @group functional
+     *
+     * @expectedException BadMethodCallException
+     */
+    public function instantiating_class_without_required_options_throws_exception()
+    {
+        new SoundCloud(array());
+    }
+
+    /**
+     * @test
+     * @group functional
      * @depends class_SoundCloud_exists
      *
      * @param SoundCloud $soundcloud
