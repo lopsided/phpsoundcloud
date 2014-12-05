@@ -20,10 +20,12 @@ class IntegrationTests extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $clientId = getenv('clientId');
-        $clientSecret = getenv('clientSecret');
+        $options = [
+            'client_id' => getenv('clientId'),
+            'secret' => getenv('clientSecret')
+        ];
 
-        $this->soundcloud = new SoundCloud($clientId, $clientSecret);
+        $this->soundcloud = new SoundCloud($options);
     }
 
     /**

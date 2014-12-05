@@ -51,15 +51,23 @@ class SoundCloud
     protected $headers = ['Accept' => 'application/json'];
 
     /**
-     * @param string $clientId
-     * @param string $clientSecret
-     * @param string $redirectUri
+     * @param array $options
      */
-    public function __construct($clientId, $clientSecret = null, $redirectUri = null)
+    public function __construct(array $options)
     {
-        $this->setClientId($clientId);
-        $this->setClientSecret($clientSecret);
-        $this->setRedirectUri($redirectUri);
+        if (!isset($options['client_id'])) {
+            throw new \BadMethodCallException('Missing option: clientId');
+        }
+
+        $this->setClientId($options['client_id']);
+
+        if (isset($options['secret'])) {
+            $this->setClientSecret($options['secret']);
+        }
+
+        if (isset($options['redirect_uri'])) {
+            $this->setRedirectUri($options['redirect_uri']);
+        }
     }
 
     /**

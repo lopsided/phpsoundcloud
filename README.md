@@ -2,17 +2,12 @@
 
 A client written in PHP for SoundCloud's API.
 
-[![Latest Stable Version](https://poser.pugx.org/alcohol/phpsoundcloud/v/stable.png)](https://packagist.org/packages/alcohol/phpsoundcloud)
-[![Build Status](https://travis-ci.org/alcohol/phpsoundcloud.png?branch=master)](https://travis-ci.org/alcohol/phpsoundcloud)
-[![Stories in Ready](https://badge.waffle.io/alcohol/phpsoundcloud.png?label=ready&title=Ready)](https://waffle.io/alcohol/phpsoundcloud)
-[![License](https://poser.pugx.org/alcohol/phpsoundcloud/license.png)](https://packagist.org/packages/alcohol/phpsoundcloud)
-
-## Installation
+## Installing
 
 Either install directly from command line using composer:
 
 ``` sh
-$ composer require "alcohol/phpsoundcloud:~1.0"
+$ composer require "alcohol/phpsoundcloud:~2.0"
 ```
 
 or manually include it as a dependency in your composer.json:
@@ -20,12 +15,12 @@ or manually include it as a dependency in your composer.json:
 ``` javascript
 {
     "require": {
-        "alcohol/phpsoundcloud": "~1.0"
+        "alcohol/phpsoundcloud": "~2.0"
     }
 }
 ```
 
-## Usage
+## Using
 
 ``` php
 <?php
@@ -40,3 +35,7 @@ $soundcloud = new SoundCloud($clientId, $clientSecret, $redirectUri);
 ## Contributing
 
 Feel free to submit a pull request or create an issue.
+
+## License
+
+Alcohol\SoundCloud is licensed under the MIT license.

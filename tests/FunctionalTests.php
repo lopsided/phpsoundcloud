@@ -13,25 +13,23 @@ use Alcohol\SoundCloud;
 
 class FunctionalTests extends \PHPUnit_Framework_TestCase
 {
-    protected $clientId = 'myId';
-
-    protected $clientSecret = 'mySecret';
-
-    protected $redirectUri = 'http://domain.tld/redirect';
+    protected $options = [
+        'client_id' => 'myId',
+        'secret' => 'mySecret',
+        'redirect_uri' => 'http://domain.tld/redirect'
+    ];
 
     /**
      * @test
      * @group functional
+     *
+     * @return SoundCloud
      */
     public function class_SoundCloud_exists()
     {
         $this->assertTrue(class_exists('Alcohol\SoundCloud'));
 
-        $soundcloud = new SoundCloud(
-            $this->clientId,
-            $this->clientSecret,
-            $this->redirectUri
-        );
+        $soundcloud = new SoundCloud($this->options);
 
         $this->assertInstanceOf('Alcohol\SoundCloud', $soundcloud);
 
