@@ -56,7 +56,7 @@ class SoundCloud
     public function __construct(array $options)
     {
         if (!isset($options['client_id'])) {
-            throw new \BadMethodCallException('Missing option: clientId');
+            throw new \BadMethodCallException('Missing option: client_id');
         }
 
         $this->setClientId($options['client_id']);
