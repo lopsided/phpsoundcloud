@@ -27,7 +27,13 @@ or manually include it as a dependency in your composer.json:
 
 use Alcohol\SoundCloud;
 
-$soundcloud = new SoundCloud($clientId, $clientSecret, $redirectUri);
+$options = [
+    'client_id' => 'yourId',
+    'secret' => 'yourSecret',
+    'redirect_uri' => 'http://domain.tld/redirect'
+];
+
+$soundcloud = new SoundCloud($options);
 
 // do stuff with it - see class for functionality, no docs yet
 ```
