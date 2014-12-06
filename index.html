@@ -35,44 +35,47 @@
 
 <p>A client written in PHP for SoundCloud's API.</p>
 
-<p><a href="https://packagist.org/packages/alcohol/phpsoundcloud"><img src="https://poser.pugx.org/alcohol/phpsoundcloud/v/stable.png" alt="Latest Stable Version"></a>
-<a href="https://travis-ci.org/alcohol/phpsoundcloud"><img src="https://travis-ci.org/alcohol/phpsoundcloud.png?branch=master" alt="Build Status"></a>
-<a href="https://waffle.io/alcohol/phpsoundcloud"><img src="https://badge.waffle.io/alcohol/phpsoundcloud.png?label=ready&amp;title=Ready" alt="Stories in Ready"></a>
-<a href="https://packagist.org/packages/alcohol/phpsoundcloud"><img src="https://poser.pugx.org/alcohol/phpsoundcloud/license.png" alt="License"></a></p>
-
 <h2>
-<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
+<a id="installing" class="anchor" href="#installing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installing</h2>
 
 <p>Either install directly from command line using composer:</p>
 
-<div class="highlight highlight-sh"><pre><span class="nv">$ </span>composer require <span class="s2">"alcohol/phpsoundcloud:~1.0"</span>
-</pre></div>
+<div class="highlight highlight-sh"><pre>$ composer require <span class="pl-s1"><span class="pl-pds">"</span>alcohol/phpsoundcloud:~2.0<span class="pl-pds">"</span></span></pre></div>
 
 <p>or manually include it as a dependency in your composer.json:</p>
 
-<div class="highlight highlight-javascript"><pre><span class="p">{</span>
-    <span class="s2">"require"</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">"alcohol/phpsoundcloud"</span><span class="o">:</span> <span class="s2">"~1.0"</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
+<div class="highlight highlight-javascript"><pre>{
+    <span class="pl-s1"><span class="pl-pds">"</span>require<span class="pl-pds">"</span></span><span class="pl-k">:</span> {
+        <span class="pl-s1"><span class="pl-pds">"</span>alcohol/phpsoundcloud<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">"</span>~2.0<span class="pl-pds">"</span></span>
+    }
+}</pre></div>
 
 <h2>
-<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+<a id="using" class="anchor" href="#using" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using</h2>
 
-<div class="highlight highlight-php"><pre><span class="o">&lt;?</span><span class="nx">php</span>
-
-<span class="k">use</span> <span class="nx">Alcohol\SoundCloud</span><span class="p">;</span>
-
-<span class="nv">$soundcloud</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SoundCloud</span><span class="p">(</span><span class="nv">$clientId</span><span class="p">,</span> <span class="nv">$clientSecret</span><span class="p">,</span> <span class="nv">$redirectUri</span><span class="p">);</span>
-
-<span class="c1">// do stuff with it - see class for functionality, no docs yet</span>
-</pre></div>
+<div class="highlight highlight-php"><pre><span class="pl-pse">&lt;?php</span><span class="pl-s2"></span>
+<span class="pl-s2"></span>
+<span class="pl-s2"><span class="pl-k">use</span> <span class="pl-s3">Alcohol\SoundCloud</span>;</span>
+<span class="pl-s2"></span>
+<span class="pl-s2"><span class="pl-vo">$options</span> <span class="pl-k">=</span> [</span>
+<span class="pl-s2">    <span class="pl-s1"><span class="pl-pds">'</span>client_id<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s1"><span class="pl-pds">'</span>yourId<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s2">    <span class="pl-s1"><span class="pl-pds">'</span>secret<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s1"><span class="pl-pds">'</span>yourSecret<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s2">    <span class="pl-s1"><span class="pl-pds">'</span>redirect_uri<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s1"><span class="pl-pds">'</span>http://domain.tld/redirect<span class="pl-pds">'</span></span></span>
+<span class="pl-s2">];</span>
+<span class="pl-s2"></span>
+<span class="pl-s2"><span class="pl-vo">$soundcloud</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-s3">SoundCloud</span>(<span class="pl-vo">$options</span>);</span>
+<span class="pl-s2"></span>
+<span class="pl-s2"><span class="pl-c">// do stuff with it - see class for functionality, no docs yet</span></span></pre></div>
 
 <h2>
 <a id="contributing" class="anchor" href="#contributing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contributing</h2>
 
 <p>Feel free to submit a pull request or create an issue.</p>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>Alcohol\SoundCloud is licensed under the MIT license.</p>
       </section>
       <footer>
         <p><small>Hosted on <a href="http://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
