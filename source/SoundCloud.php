@@ -15,39 +15,25 @@ use GuzzleHttp\Client;
 
 class SoundCloud
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $clientId;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $clientSecret;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $redirectUri;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $token;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $apiBase = 'https://api.soundcloud.com';
 
-    /**
-     * @var ClientInterface
-     */
+    /** @var ClientInterface */
     protected $client;
 
-    /**
-     * @var string
-     */
+    /*** @var string */
     protected $headers = ['Accept' => 'application/json'];
 
     /**
@@ -56,13 +42,13 @@ class SoundCloud
     public function __construct(array $options)
     {
         if (!isset($options['client_id'])) {
-            throw new \BadMethodCallException('Missing option: client_id');
+            throw new \BadMethodCallException('Missing required option: client_id');
         }
 
         $this->setClientId($options['client_id']);
 
-        if (isset($options['secret'])) {
-            $this->setClientSecret($options['secret']);
+        if (isset($options['client_secret'])) {
+            $this->setClientSecret($options['client_secret']);
         }
 
         if (isset($options['redirect_uri'])) {
@@ -239,6 +225,7 @@ class SoundCloud
                 [
                     'client_id' => $this->getClientId(),
                     'client_secret' => $this->getClientSecret(),
+                    'redirect_uri' => $this->getRedirectUri(),
                     'response_type' => 'code',
                     'scope' => 'non-expiring'
                 ],
@@ -253,6 +240,7 @@ class SoundCloud
      * @param string $username
      * @param string $password
      * @return mixed
+     * @throws \GuzzleHttp\Exception\ClientException
      */
     public function getTokenUsingCredentials($username, $password)
     {

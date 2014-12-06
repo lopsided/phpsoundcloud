@@ -15,17 +15,18 @@
          stopOnSkipped="false"
          bootstrap="vendor/autoload.php">
     <php>
-        <env name="clientId" value="APPLICATION_KEY" />
-        <env name="clientSecret" value="APPLICATION_SECRET" />
-        <env name="playlistId" value="4141576" />
-        <env name="playlistUri" value="https://api.soundcloud.com/playlists/4141576" />
-        <env name="trackId" value="147399190" />
-        <env name="username" value="USERNAME" />
-        <env name="password" value="PASSWORD" />
+        <env name="client_id" value="" />
+        <env name="client_secret" value="" />
+        <env name="redirect_uri" value="" />
+        <env name="soundcloud_username" value="" />
+        <env name="soundcloud_password" value="" />
+        <env name="playlist_id" value="" />
+        <env name="playlist_uri" value="" />
+        <env name="track_id" value="" />
     </php>
     <testsuites>
         <testsuite name="PhpSoundCloud Test Suite">
-            <directory suffix=".php">./tests</directory>
+            <directory>./tests</directory>
         </testsuite>
     </testsuites>
     <filters>
