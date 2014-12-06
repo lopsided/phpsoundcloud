@@ -29,7 +29,7 @@ use Alcohol\SoundCloud;
 
 $options = [
     'client_id' => 'yourId',
-    'secret' => 'yourSecret',
+    'client_secret' => 'yourSecret',
     'redirect_uri' => 'http://domain.tld/redirect'
 ];
 
