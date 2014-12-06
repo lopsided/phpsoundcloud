@@ -33,7 +33,7 @@ class SoundCloud
     /** @var ClientInterface */
     protected $client;
 
-    /*** @var string */
+    /*** @var array */
     protected $headers = ['Accept' => 'application/json'];
 
     /**
