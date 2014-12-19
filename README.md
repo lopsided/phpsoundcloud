@@ -2,6 +2,8 @@
 
 A client written in PHP for SoundCloud's API.
 
+[![Build Status](https://travis-ci.org/alcohol/phpsoundcloud.svg?branch=master)](https://travis-ci.org/alcohol/phpsoundcloud)
+
 ## Installing
 
 Either install directly from command line using composer:
