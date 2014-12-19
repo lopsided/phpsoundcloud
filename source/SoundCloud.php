@@ -58,7 +58,7 @@ class SoundCloud
 
     /**
      * @param string $uri
-     * @return $this
+     * @return SoundCloud
      */
     public function setApiBase($uri)
     {
@@ -77,7 +77,7 @@ class SoundCloud
 
     /**
      * @param string $token
-     * @return $this
+     * @return SoundCloud
      */
     public function setToken($token)
     {
@@ -96,7 +96,7 @@ class SoundCloud
 
     /**
      * @param array $headers
-     * @return $this
+     * @return SoundCloud
      */
     public function setHeaders(array $headers)
     {
@@ -115,7 +115,7 @@ class SoundCloud
 
     /**
      * @param string $clientId
-     * @return $this
+     * @return SoundCloud
      */
     public function setClientId($clientId)
     {
@@ -134,7 +134,7 @@ class SoundCloud
 
     /**
      * @param string $clientSecret
-     * @return $this
+     * @return SoundCloud
      */
     public function setClientSecret($clientSecret)
     {
@@ -153,7 +153,7 @@ class SoundCloud
 
     /**
      * @param string $redirectUri
-     * @return $this
+     * @return SoundCloud
      */
     public function setRedirectUri($redirectUri)
     {
@@ -172,7 +172,7 @@ class SoundCloud
 
     /**
      * @param ClientInterface $client
-     * @return $this
+     * @return SoundCloud
      */
     public function setClient(ClientInterface $client)
     {
@@ -194,7 +194,7 @@ class SoundCloud
     }
 
     /**
-     * @return bool
+     * @return SoundCloud
      */
     public function returnJson()
     {
@@ -204,7 +204,7 @@ class SoundCloud
     }
 
     /**
-     * @return bool
+     * @return SoundCloud
      */
     public function returnXml()
     {
