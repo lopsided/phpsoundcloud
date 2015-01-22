@@ -33,7 +33,8 @@
         }
     },
     "scripts": {
-        "test": "vendor/bin/phpunit",
-        "checkstyle": "vendor/bin/phpcs --standard=psr2 source tests"
+        "checkstyle": "vendor/bin/phpcs --standard=psr2 source tests",
+        "clean": "git clean -ffxdi",
+        "test": "vendor/bin/phpunit"
     }
 }
