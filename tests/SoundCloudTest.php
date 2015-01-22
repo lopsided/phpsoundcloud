@@ -39,21 +39,21 @@ class SoundCloudTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @test
      * @group functional
+     * @testdox Instantiating the SoundCloud class without required options throws a BadMethodCallException.
      *
      * @expectedException \BadMethodCallException
      */
-    public function instantiating_class_without_required_options_throws_exception()
+    public function testSoundCloudConstructor()
     {
         new SoundCloud(array());
     }
 
     /**
-     * @test
      * @group functional
+     * @testdox Calling getTokenAuthUri returns a valid uri.
      */
-    public function calling_getTokenAuthUri_returns_valid_uri()
+    public function testGetTokenAuthUri()
     {
         $string = $this->soundcloud->getTokenAuthUri();
 
@@ -76,11 +76,11 @@ class SoundCloudTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @test
+     * @testdox Calling getTokenUsingCredentials with invalid credentials throws a ClientException.
      * @group integration
      * @expectedException \GuzzleHttp\Exception\ClientException
      */
-    public function calling_getTokenUsingCredentials_with_invalid_credentials_should_throw_exception()
+    public function testGetTokenUsingCredentialsThrowsException()
     {
         $username = 'myUsername';
         $password = 'myPassword';
@@ -93,10 +93,10 @@ class SoundCloudTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @test
+     * @testdox Calling getTokenUsingCredentials with valid credentials should return a token.
      * @group integration
      */
-    public function calling_getTokenUsingCredentials_with_valid_credentials_should_return_token()
+    public function testGetTokenUsingCredentials()
     {
         $username = getenv('soundcloud_username');
         $password = getenv('soundcloud_password');
@@ -127,11 +127,11 @@ class SoundCloudTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @test
+     * @testdox Calling getStream with a invalid token should throw a ClientException.
      * @group integration
      * @expectedException \GuzzleHttp\Exception\ClientException
      */
-    public function calling_getStream_with_invalid_token_should_throw_exception()
+    public function testGetStreamThrowsException()
     {
         if (isset($this->mock)) {
             $this->mock->addResponse(new Response(401));
@@ -142,13 +142,13 @@ class SoundCloudTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @test
+     * @testdox Calling getStream with a valid token should return a stream array.
      * @group integration
-     * @depends calling_getTokenUsingCredentials_with_valid_credentials_should_return_token
+     * @depends testGetTokenUsingCredentials
      *
      * @param string $token
      */
-    public function calling_getStream_with_valid_token_should_return_stream($token)
+    public function testGetStreamWithToken($token)
     {
         if (isset($this->mock)) {
             $this->mock->addResponse(
@@ -173,11 +173,11 @@ class SoundCloudTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @test
+     * @testdox Calling getFavorites with a invalid token should throw a ClientException.
      * @group integration
      * @expectedException \GuzzleHttp\Exception\ClientException
      */
-    public function calling_getFavorites_with_invalid_token_should_throw_exception()
+    public function testGetFavoritesThrowsException()
     {
         if (isset($this->mock)) {
             $this->mock->addResponse(new Response(401));
@@ -188,13 +188,13 @@ class SoundCloudTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @test
+     * @testdox Calling getFavorites with a valid token should return a favorites array.
      * @group integration
-     * @depends calling_getTokenUsingCredentials_with_valid_credentials_should_return_token
+     * @depends testGetTokenUsingCredentials
      *
      * @param string $token
      */
-    public function calling_getFavorites_with_valid_token_should_return_favorites($token)
+    public function testGetFavoritesWithToken($token)
     {
         if (isset($this->mock)) {
             $this->mock->addResponse(
@@ -208,11 +208,11 @@ class SoundCloudTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @test
+     * @testdox Calling getPlaylists with a invalid token should throw a ClientException.
      * @group integration
      * @expectedException \GuzzleHttp\Exception\ClientException
      */
-    public function calling_getPlaylists_with_invalid_token_should_throw_exception()
+    public function testGetPlaylistsThrowsException()
     {
         if (isset($this->mock)) {
             $this->mock->addResponse(new Response(401));
@@ -223,13 +223,13 @@ class SoundCloudTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @test
+     * @testdox Calling getPlaylists with a valid token should return a playlists array.
      * @group integration
-     * @depends calling_getTokenUsingCredentials_with_valid_credentials_should_return_token
+     * @depends testGetTokenUsingCredentials
      *
      * @param string $token
      */
-    public function calling_getPlaylists_with_valid_token_should_return_playlists($token)
+    public function testGetPlaylistsWithToken($token)
     {
         if (isset($this->mock)) {
             $this->mock->addResponse(
@@ -251,10 +251,10 @@ class SoundCloudTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @test
+     * @testdox Calling getPlaylist anonymously returns an array with playlist details.
      * @group integration
      */
-    public function calling_getPlaylist_anonymously_returns_playlist_details()
+    public function testGetPlaylistAnonymous()
     {
         if (isset($this->mock)) {
             $this->mock->addResponse(
@@ -277,10 +277,10 @@ class SoundCloudTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @test
+     * @testdox Calling getTrack anonymously returns an array with track details.
      * @group integration
      */
-    public function calling_getTrack_anonymously_returns_track_details()
+    public function testGetTrackAnonymous()
     {
         if (isset($this->mock)) {
             $this->mock->addResponse(
@@ -303,10 +303,10 @@ class SoundCloudTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @test
+     * @testdox Calling getTrackStreamUri anonymously returns streaming uri.
      * @group integration
      */
-    public function calling_getTrackStreamUri_anonymously_returns_streaming_uri()
+    public function testGetTrackStreamUriAnonymous()
     {
         if (isset($this->mock)) {
             $this->mock->addMultiple([
@@ -336,10 +336,10 @@ class SoundCloudTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @test
+     * @testdox Calling resolveUri anonymously returns correct resolved target uri.
      * @group integration
      */
-    public function calling_resolveUri_anonymously_returns_correct_resolved_target_uri()
+    public function testResolveUriAnonymous()
     {
         $this->soundcloud->setToken(null);
         $playlistId = getenv('playlist_id') ?: '1';
